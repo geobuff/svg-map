@@ -16,10 +16,14 @@
   ],
   "scripts": {
     "build": "rd /s /q dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "test": "react-scripts test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
     "@babel/polyfill": "^7.12.1",
     "@types/node": "^12.20.27",
     "@types/react": "^17.0.24",
