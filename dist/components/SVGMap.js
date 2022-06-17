@@ -24,27 +24,46 @@ const SVGMap = _ref => {
     viewBox: map.viewBox,
     "aria-label": map.label,
     style: mapStyle
-  }, map.paths.map(path => /*#__PURE__*/_react.default.createElement("path", {
-    key: path.id,
-    id: path.id,
-    name: path.name,
-    d: path.d,
-    "aria-label": path.name,
-    onMouseOver: onPathMouseOver,
-    onMouseMove: onPathMouseMove,
-    onMouseOut: onPathMouseOut,
-    style: path.style ? path.style : {}
-  })));
+  }, map.elements.map(element => {
+    switch (element.type) {
+      case "circle":
+        return /*#__PURE__*/_react.default.createElement("circle", {
+          id: element.id,
+          name: element.name,
+          cx: element.cx,
+          cy: element.cy,
+          r: element.r,
+          style: element.style ? element.style : {}
+        });
+
+      default:
+        return /*#__PURE__*/_react.default.createElement("path", {
+          key: element.id,
+          id: element.id,
+          name: element.name,
+          d: element.d,
+          "aria-label": element.name,
+          onMouseOver: onPathMouseOver,
+          onMouseMove: onPathMouseMove,
+          onMouseOut: onPathMouseOut,
+          style: element.style ? element.style : {}
+        });
+    }
+  }));
 };
 
 SVGMap.propTypes = {
   map: _propTypes.default.shape({
     label: _propTypes.default.string.isRequired,
     viewBox: _propTypes.default.string.isRequired,
-    paths: _propTypes.default.arrayOf(_propTypes.default.shape({
+    elements: _propTypes.default.arrayOf(_propTypes.default.shape({
+      type: _propTypes.default.string.isRequired,
       id: _propTypes.default.string.isRequired,
       name: _propTypes.default.string.isRequired,
-      d: _propTypes.default.string.isRequired,
+      d: _propTypes.default.string,
+      cx: _propTypes.default.string,
+      cy: _propTypes.default.string,
+      r: _propTypes.default.string,
       style: _propTypes.default.object
     }))
   }).isRequired,
