@@ -72,7 +72,8 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
         height: element.height,
         transform: element.transform,
         xlinkHref: element.xlinkHref,
-        "clip-path": element.clipPath
+        "clip-path": element.clipPath,
+        style: element.style ? element.style : {}
       });
 
     case "defs":

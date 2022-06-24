@@ -68,6 +68,7 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
           transform={element.transform}
           xlinkHref={element.xlinkHref}
           clip-path={element.clipPath}
+          style={element.style ? element.style : {}}
         />
       );
     case "defs":
