@@ -73,6 +73,9 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
         transform: element.transform,
         xlinkHref: element.xlinkHref,
         "clip-path": element.clipPath,
+        onMouseOver: onPathMouseOver,
+        onMouseMove: onPathMouseMove,
+        onMouseOut: onPathMouseOut,
         style: element.style ? element.style : {}
       });
 
