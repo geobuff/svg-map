@@ -1,6 +1,6 @@
 {
   "name": "@geobuff/svg-map",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Map component used by the team at geobuff.com.",
   "license": "MIT",
   "repository": "geobuff/svg-map",
