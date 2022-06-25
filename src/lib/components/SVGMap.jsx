@@ -40,6 +40,9 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
           cx={element.cx}
           cy={element.cy}
           r={element.r}
+          onMouseOver={onPathMouseOver}
+          onMouseMove={onPathMouseMove}
+          onMouseOut={onPathMouseOut}
           style={element.style ? element.style : {}}
         />
       );
