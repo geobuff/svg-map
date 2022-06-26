@@ -18,8 +18,8 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
         key: element.id,
         id: element.id,
         name: element.name,
-        d: element.d,
         "aria-label": element.name,
+        d: element.d,
         onMouseOver: onPathMouseOver,
         onMouseMove: onPathMouseMove,
         onMouseOut: onPathMouseOut,
@@ -31,8 +31,21 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
         key: element.id,
         id: element.id,
         name: element.name,
-        points: element.points,
         "aria-label": element.name,
+        points: element.points,
+        onMouseOver: onPathMouseOver,
+        onMouseMove: onPathMouseMove,
+        onMouseOut: onPathMouseOut,
+        style: element.style ? element.style : {}
+      });
+
+    case "polyline":
+      return /*#__PURE__*/_react.default.createElement("polyline", {
+        key: element.id,
+        id: element.id,
+        name: element.name,
+        "aria-label": element.name,
+        points: element.points,
         onMouseOver: onPathMouseOver,
         onMouseMove: onPathMouseMove,
         onMouseOut: onPathMouseOut,
@@ -44,6 +57,7 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
         key: element.id,
         id: element.id,
         name: element.name,
+        "aria-label": element.name,
         cx: element.cx,
         cy: element.cy,
         r: element.r,
@@ -58,11 +72,28 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
         key: element.id,
         id: element.id,
         name: element.name,
+        "aria-label": element.name,
         x: element.x,
         y: element.y,
         width: element.width,
         height: element.height,
         transform: element.transform,
+        onMouseOver: onPathMouseOver,
+        onMouseMove: onPathMouseMove,
+        onMouseOut: onPathMouseOut,
+        style: element.style ? element.style : {}
+      });
+
+    case "line":
+      return /*#__PURE__*/_react.default.createElement("line", {
+        key: element.id,
+        id: element.id,
+        name: element.name,
+        "aria-label": element.name,
+        x1: element.x1,
+        y1: element.y1,
+        x2: element.x2,
+        y2: element.y2,
         style: element.style ? element.style : {}
       });
 
@@ -71,6 +102,7 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
         key: element.id,
         id: element.id,
         name: element.name,
+        "aria-label": element.name,
         width: element.width,
         height: element.height,
         transform: element.transform,
@@ -86,7 +118,8 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
       return /*#__PURE__*/_react.default.createElement("defs", {
         key: element.id,
         id: element.id,
-        name: element.name
+        name: element.name,
+        "aria-label": element.name
       }, /*#__PURE__*/_react.default.createElement("clipPath", {
         id: element.clipPathId
       }, /*#__PURE__*/_react.default.createElement("rect", {
@@ -137,6 +170,10 @@ SVGMap.propTypes = {
       xlinkHref: _propTypes.default.string,
       clipPath: _propTypes.default.string,
       clipPathId: _propTypes.default.string,
+      x1: _propTypes.default.string,
+      y1: _propTypes.default.string,
+      x2: _propTypes.default.string,
+      y2: _propTypes.default.string,
       style: _propTypes.default.object
     }))
   }).isRequired,

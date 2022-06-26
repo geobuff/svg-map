@@ -9,8 +9,8 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
           key={element.id}
           id={element.id}
           name={element.name}
-          d={element.d}
           aria-label={element.name}
+          d={element.d}
           onMouseOver={onPathMouseOver}
           onMouseMove={onPathMouseMove}
           onMouseOut={onPathMouseOut}
@@ -23,8 +23,22 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
           key={element.id}
           id={element.id}
           name={element.name}
-          points={element.points}
           aria-label={element.name}
+          points={element.points}
+          onMouseOver={onPathMouseOver}
+          onMouseMove={onPathMouseMove}
+          onMouseOut={onPathMouseOut}
+          style={element.style ? element.style : {}}
+        />
+      );
+    case "polyline":
+      return (
+        <polyline
+          key={element.id}
+          id={element.id}
+          name={element.name}
+          aria-label={element.name}
+          points={element.points}
           onMouseOver={onPathMouseOver}
           onMouseMove={onPathMouseMove}
           onMouseOut={onPathMouseOut}
@@ -37,6 +51,7 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
           key={element.id}
           id={element.id}
           name={element.name}
+          aria-label={element.name}
           cx={element.cx}
           cy={element.cy}
           r={element.r}
@@ -52,20 +67,39 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
           key={element.id}
           id={element.id}
           name={element.name}
+          aria-label={element.name}
           x={element.x}
           y={element.y}
           width={element.width}
           height={element.height}
           transform={element.transform}
+          onMouseOver={onPathMouseOver}
+          onMouseMove={onPathMouseMove}
+          onMouseOut={onPathMouseOut}
           style={element.style ? element.style : {}}
         />
       );
+    case "line":
+        return (
+          <line
+            key={element.id}
+            id={element.id}
+            name={element.name}
+            aria-label={element.name}
+            x1={element.x1}
+            y1={element.y1}
+            x2={element.x2}
+            y2={element.y2}
+            style={element.style ? element.style : {}}
+          />
+        );
     case "image":
       return (
         <image
           key={element.id}
           id={element.id}
           name={element.name}
+          aria-label={element.name}
           width={element.width}
           height={element.height}
           transform={element.transform}
@@ -83,6 +117,7 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
           key={element.id}
           id={element.id}
           name={element.name}
+          aria-label={element.name}
         >
             <clipPath id={element.clipPathId}>
                 <rect width={element.width} height={element.height}/>
@@ -134,6 +169,10 @@ SVGMap.propTypes = {
         xlinkHref: PropTypes.string,
         clipPath: PropTypes.string,
         clipPathId: PropTypes.string,
+        x1: PropTypes.string,
+        y1: PropTypes.string,
+        x2: PropTypes.string,
+        y2: PropTypes.string,
         style: PropTypes.object,
       })
     ),
