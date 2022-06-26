@@ -125,7 +125,7 @@ const getChild = (element, onPathMouseOver, onPathMouseMove, onPathMouseOut) => 
         </defs>
       );
     default:
-     throw Error("Invalid SVG child type.");
+     throw Error(`Invalid SVG child type '${element.type}'.`);
   }
 };
 
